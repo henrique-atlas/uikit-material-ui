@@ -4,6 +4,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -49,27 +52,51 @@ export default function CompanyOverviewContent() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="General Information" {...a11yProps(0)} />
+          <Tab label="Account Contact" {...a11yProps(1)} />
+          <Tab label="Documents" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
+          <Grid container spacing={2} columns={16}>
+            <Grid item xs={4}>
+              <TextField id="outlined-basic" label="Customer Legal Name" variant="outlined" />
+            </Grid>
+            <Grid item xs={4}>
+              {/* <TextField id="outlined-basic" label="Customer DBA" variant="outlined" /> */}
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Customer DBA</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  label="Customer DBA"
+                  // value={age}
+                  // onChange={handleChange}
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={4}>
+              <TextField id="outlined-basic" label="Tax Id Registration Number" variant="outlined" />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField id="outlined-basic" label="Website" variant="outlined" />
+            </Grid>
+          </Grid>
+          <Grid container spacing={2} columns={16}>
+            <Grid item xs={4}>
+              <TextField id="outlined-basic" label="Region" variant="outlined" />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField id="outlined-basic" label="Industry" variant="outlined" />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField id="outlined-basic" label="Language" variant="outlined" />
+            </Grid>
+          </Grid>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Toolbar />
