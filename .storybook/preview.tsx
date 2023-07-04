@@ -59,11 +59,5 @@ export const withMuiTheme = (Story, context) => {
     </ThemeProvider>
   );
 };
-// export const withMuiTheme = (Story) => (
-//   <ThemeProvider theme={darkTheme}>
-//     <CssBaseline />
-//     <Story />
-//   </ThemeProvider>
-// );
 
 export const decorators = [withMuiTheme];
